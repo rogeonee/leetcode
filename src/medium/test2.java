@@ -1,4 +1,4 @@
-package another;
+package medium;
 
 public class test2 {
 
