@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch merge_sorted_lists",
+            "request": "launch",
+            "mainClass": "easy.merge_sorted_lists",
+            "projectName": "leetcode"
+        },
+        {
+            "type": "java",
             "name": "Launch valid_parentheses",
             "request": "launch",
             "mainClass": "easy.valid_parentheses",
