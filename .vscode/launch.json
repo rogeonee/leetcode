@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch buy_sell_stocks",
+            "request": "launch",
+            "mainClass": "easy.buy_sell_stocks",
+            "projectName": "leetcode"
+        },
+        {
+            "type": "java",
             "name": "Launch merge_sorted_lists",
             "request": "launch",
             "mainClass": "easy.merge_sorted_lists",
