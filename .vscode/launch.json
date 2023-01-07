@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch valid_palindrome",
+            "request": "launch",
+            "mainClass": "easy.valid_palindrome",
+            "projectName": "leetcode"
+        },
+        {
+            "type": "java",
             "name": "Launch buy_sell_stocks",
             "request": "launch",
             "mainClass": "easy.buy_sell_stocks",
