@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch binary_search",
+            "request": "launch",
+            "mainClass": "easy.binary_search",
+            "projectName": "leetcode"
+        },
+        {
+            "type": "java",
             "name": "Launch valid_anagram",
             "request": "launch",
             "mainClass": "easy.valid_anagram",
