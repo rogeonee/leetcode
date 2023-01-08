@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch valid_anagram",
+            "request": "launch",
+            "mainClass": "easy.valid_anagram",
+            "projectName": "leetcode"
+        },
+        {
+            "type": "java",
             "name": "Launch valid_palindrome",
             "request": "launch",
             "mainClass": "easy.valid_palindrome",
