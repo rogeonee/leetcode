@@ -113,14 +113,15 @@ public class Game
     return timesGet - timesAvoid;
   }
   
-  public void updateTitle()
-  {
-    grid.setTitle("Game:  " + getScore());
+  public void updateTitle() {
+    grid.setTitle("Game:  " + getScore() + " | TIme elapsed: " + (msElapsed / 1000));
   }
   
-  public boolean isGameOver()
-  {
-    return false;
+  public boolean isGameOver() {
+    if(msElapsed / 1000 == 60 || getScore() == 30)
+      return true;
+    else
+      return false;
   }
   
   public static void test()
