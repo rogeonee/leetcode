@@ -7,6 +7,10 @@ public class Game
   private int msElapsed;
   private int timesGet;
   private int timesAvoid;
+
+  private String user = "assets/user.gif";
+  private String get = "assets/get.gif";
+  private String avoid = "assets/avoid.gif";
   
   public Game()
   {
@@ -16,7 +20,7 @@ public class Game
     timesGet = 0;
     timesAvoid = 0;
     updateTitle();
-    grid.setImage(new Location(userRow, 0), "assets/user.gif");
+    grid.setImage(new Location(userRow, 0), user);
   }
   
   public void play()
@@ -44,7 +48,7 @@ public class Game
 
       grid.setImage(new Location(userRow, 0), null);
       userRow -= 1;
-      grid.setImage(new Location(userRow, 0), "assets/user.gif");
+      grid.setImage(new Location(userRow, 0), user);
 
     } else if(key == 40) {
       if(userRow == 4)
@@ -52,13 +56,22 @@ public class Game
 
       grid.setImage(new Location(userRow, 0), null);
       userRow += 1;
-      grid.setImage(new Location(userRow, 0), "assets/user.gif");
+      grid.setImage(new Location(userRow, 0), user);
     }
 
   }
   
-  public void populateRightEdge()
-  {
+  public void populateRightEdge() {
+    for (int row = 0; row < grid.getNumRows(); row++) {
+        int random = (int) (Math.random() * 10);
+
+        if (random == 0 || random == 1)
+            grid.setImage(new Location(row, grid.getNumCols() - 1), get);
+        else if (random > 1 && random < 5)
+            grid.setImage(new Location(row, grid.getNumCols() - 1), avoid);
+        else
+            grid.setImage(new Location(row, grid.getNumCols() - 1), null);
+    }
   }
   
   public void scrollLeft()
