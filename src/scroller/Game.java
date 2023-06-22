@@ -27,7 +27,7 @@ public class Game
   {
     while (!isGameOver())
     {
-      grid.pause(200);
+      grid.pause(100);
       handleKeyPress();
       if (msElapsed % 300 == 0)
       {
@@ -35,7 +35,7 @@ public class Game
         populateRightEdge();
       }
       updateTitle();
-      msElapsed += 200;
+      msElapsed += 100;
     }
   }
   
@@ -79,28 +79,38 @@ public class Game
   }
   
   public void scrollLeft() {
-    // Go through the grid
+    String prevImg = grid.getImage(new Location(userRow, 1));
+
     for (int row = 0; row < grid.getNumRows(); row++) {
         for (int col = 1; col < grid.getNumCols(); col++) {
-            // Shift any image one cell left
             String img = grid.getImage(new Location(row, col));
             grid.setImage(new Location(row, col - 1), img);
         }
-        // Unset image at the left edge
         grid.setImage(new Location(row, grid.getNumCols() - 1), null);
     }
 
-    // Restore the user image
+    // Restore user image
     grid.setImage(new Location(userRow, 0), user);
+
+    // Check for collision with the image at the user's last location
+    handleCollision(new Location(userRow, 1), prevImg);
   }
-  
-  public void handleCollision(Location loc)
-  {
+
+  public void handleCollision(Location loc, String prevImg) {
+    if (prevImg != null) {
+        if (prevImg == "assets/get.gif") {
+            timesGet++;
+            //System.out.println("Get: " + timesGet);
+        } else if (prevImg == "assets/avoid.gif") {
+            timesAvoid++;
+            //System.out.println("Avoid: " + timesAvoid);
+        }
+    }
   }
   
   public int getScore()
   {
-    return 0;
+    return timesGet - timesAvoid;
   }
   
   public void updateTitle()
