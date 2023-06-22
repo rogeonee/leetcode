@@ -6,6 +6,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "hueta",
+            "request": "launch",
+            "mainClass": "test.hueta",
+            "projectName": "leetcode"
+        },
+        {
+            "type": "java",
+            "name": "Assignment8",
+            "request": "launch",
+            "mainClass": "test.Assignment8",
+            "projectName": "leetcode"
+        },
+        {
+            "type": "java",
+            "name": "Assignment7",
+            "request": "launch",
+            "mainClass": "test.Assignment7",
+            "projectName": "leetcode"
+        },
+        {
+            "type": "java",
+            "name": "bbb",
+            "request": "launch",
+            "mainClass": "test.bbb",
+            "projectName": "leetcode"
+        },
+        {
+            "type": "java",
             "name": "Launch binary_search",
             "request": "launch",
             "mainClass": "easy.binary_search",
