@@ -16,7 +16,7 @@ public class Game
     timesGet = 0;
     timesAvoid = 0;
     updateTitle();
-    grid.setImage(new Location(userRow, 0), "user.gif");
+    grid.setImage(new Location(userRow, 0), "assets/user.gif");
   }
   
   public void play()
@@ -35,8 +35,26 @@ public class Game
     }
   }
   
-  public void handleKeyPress()
-  {
+  public void handleKeyPress() {
+    int key = grid.checkLastKeyPressed();
+    //System.out.println(key);
+    if(key == 38) {
+      if(userRow == 0)
+        return;
+
+      grid.setImage(new Location(userRow, 0), null);
+      userRow -= 1;
+      grid.setImage(new Location(userRow, 0), "assets/user.gif");
+
+    } else if(key == 40) {
+      if(userRow == 4)
+        return;
+
+      grid.setImage(new Location(userRow, 0), null);
+      userRow += 1;
+      grid.setImage(new Location(userRow, 0), "assets/user.gif");
+    }
+
   }
   
   public void populateRightEdge()
