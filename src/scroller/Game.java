@@ -1,5 +1,10 @@
-package scroller;
 
+// Elena Savkina
+// 79790747
+// COSC 111 L02
+// Scroller game "Hungry Croc" where you should eat the pizza and avoid broccoli ,
+// the game  is over when you eat 5 broccoli
+package scroller;
 public class Game
 {
   private Grid grid;
@@ -8,9 +13,9 @@ public class Game
   private int timesGet;
   private int timesAvoid;
 
-  private String user = "assets/user.gif";
-  private String get = "assets/get.gif";
-  private String avoid = "assets/avoid.gif";
+  private String user = "assets/croc0_rmbg.png";
+  private String get = "assets/pizza_rmbg.png";
+  private String avoid = "assets/broc_rmbg.png";
   
   public Game()
   {
@@ -41,7 +46,6 @@ public class Game
   
   public void handleKeyPress() {
     int key = grid.checkLastKeyPressed();
-    //System.out.println(key);
     if(key == 38) {
       if(userRow == 0)
         return;
@@ -98,30 +102,30 @@ public class Game
 
   public void handleCollision(Location loc, String prevImg) {
     if (prevImg != null) {
-        if (prevImg == "assets/get.gif") {
+        if (prevImg == get) {
             timesGet++;
-            //System.out.println("Get: " + timesGet);
-        } else if (prevImg == "assets/avoid.gif") {
+        } else if (prevImg == avoid) {
             timesAvoid++;
-            //System.out.println("Avoid: " + timesAvoid);
         }
     }
   }
   
-  public int getScore()
-  {
-    return timesGet - timesAvoid;
+  public int getScore() {
+    return timesGet;
   }
   
   public void updateTitle() {
-    grid.setTitle("Game:  " + getScore() + " | TIme elapsed: " + (msElapsed / 1000));
+    grid.setTitle("Hungry Croc | Broc eaten: " + timesAvoid + " | Pizza eaten: " + timesGet);
+
+    if(timesAvoid == 5)
+      grid.setTitle("Game over! You ate " + timesGet + " pizzas!");
   }
   
   public boolean isGameOver() {
-    if(msElapsed / 1000 == 60 || getScore() == 30)
+    if(timesAvoid == 5)
       return true;
-    else
-      return false;
+    
+    return false;
   }
   
   public static void test()
